@@ -1,0 +1,9 @@
+{
+  "language": "zh",
+  "pdf": {
+    "pageNumbers": true,
+	"fontFamily": "Microsoft YaHei",
+    "fontSize": 12,
+    "paperSize": "a4"
+  }
+}

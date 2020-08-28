@@ -37,7 +37,7 @@ version = '1.2.1'
 
 > 虽然示例中的属性是可选的，但我们建议你在项目中指定它们。兼容性选项可以减轻项目在不同的Java编译器版本中构建的问题，版本字符串对于跟踪项目的进展非常重要。默认情况下，项目版本也用于存档名称中。
 
-Java库插件还将上述任务整合到标准的[Base Plugin生命周期任务](..\core-plugins\base_plugin.md)中：
+Java库插件还将上述任务整合到标准的[Base Plugin生命周期任务](../core-plugins/base_plugin.md)中：
 
 - jar被添加到assemble(事实上，任何添加到归档配置中的工件都将通过assemble)
 - test被添加到check
@@ -55,7 +55,7 @@ Gradle的Java支持是第一个引入了构建基于源码项目的新概念：�
 - 源文件和它们的位置
 
 
-- 编译classpath，包括任何所需的依赖关系（通过[Gradle配置](..\dep-man\dependency_management_terminology.md)）。
+- 编译classpath，包括任何所需的依赖关系（通过[Gradle配置](../dep-man/dependency_management_terminology.md)）。
 
 
 - 编译后的类文件放置的地方
@@ -63,7 +63,7 @@ Gradle的Java支持是第一个引入了构建基于源码项目的新概念：�
 
 你可以在这张图中看到这些之间的关系：
 
-![java-sourcesets-compilation](..\img\java-sourcesets-compilation.png)
+![java-sourcesets-compilation](../img/java-sourcesets-compilation.png)
 
 
 
@@ -75,7 +75,7 @@ Gradle的Java支持是第一个引入了构建基于源码项目的新概念：�
 
 Java项目通常包括源文件以外的资源，如属性文件，这些资源可能需要处理--例如在文件中替换标记--并在最终的JAR中打包。Java 库插件通过为每个定义的源集自动创建一个名为 processSourceSetResources 的专用任务（或主源集的 processResources）来处理这个问题。下图显示了源集如何与该任务配合。
 
-![java-sourcesets-process-resources](..\img\java-sourcesets-process-resources.png)
+![java-sourcesets-process-resources](../img/java-sourcesets-process-resources.png)
 
 
 与之前一样，阴影框代表源集的属性，在这种情况下，源集包括资源文件的位置以及它们被复制到哪里。
@@ -96,7 +96,7 @@ Java项目通常包括源文件以外的资源，如属性文件，这些资源�
 
 ## 管理依赖
 
-绝大多数Java项目都依赖于库，因此管理项目的依赖关系是构建Java项目的重要组成部分。依赖管理是一个很大的话题，所以我们将在这里重点介绍Java项目的基础知识。如果你想深入了解细节，请查看[依赖管理介绍](..\dep-man\01-core-dependency-management\core_dependency_management.md)。
+绝大多数Java项目都依赖于库，因此管理项目的依赖关系是构建Java项目的重要组成部分。依赖管理是一个很大的话题，所以我们将在这里重点介绍Java项目的基础知识。如果你想深入了解细节，请查看[依赖管理介绍](../dep-man/01-core-dependency-management/core_dependency_management.md)。
 
 为你的Java项目指定依赖关系只需要三个信息：
 
@@ -159,12 +159,12 @@ dependencies {
 
 我们在这里只是做了一些表面文章，所以我们建议你在对使用Gradle构建Java项目的基础知识感到满意后，再阅读专门的依赖性管理章节。一些需要进一步阅读的常见场景包括：
 
- * 定义一个自定义的[Maven或Ivy兼容](..\dep-man\01-core-dependency-management\declaring_repositories.md)的仓库
- * 从[本地文件系统](..\dep-man\01-core-dependency-management\declaring_repositories.md)目录中使用依赖关系
- * 声明不断[变化（如SNAPSHOT）和动态（范围）版本](..\dep-man\02-declaring-dependency-versions\dynamic_versions.md)的依赖性
- * 将兄弟项目[声明为依赖](..\dep-man\01-core-dependency-management\declaring_dependencies.md)关系
- * [控制转义依赖和它们的版本](..\dep-man\03-controlling-transitive-dependencies\dependency_constraints.md)
- * 通过[复合构建](..\dep-man\05-multirepo-environment\composite_builds.md)测试你对第三方依赖关系的修复（比从[Maven Local](..\dep-man\01-core-dependency-management\declaring_repositories.md)发布和消费更好的替代方法）
+ * 定义一个自定义的[Maven或Ivy兼容](../dep-man/01-core-dependency-management/declaring_repositories.md)的仓库
+ * 从[本地文件系统](../dep-man/01-core-dependency-management/declaring_repositories.md)目录中使用依赖关系
+ * 声明不断[变化（如SNAPSHOT）和动态（范围）版本](../dep-man/02-declaring-dependency-versions/dynamic_versions.md)的依赖性
+ * 将兄弟项目[声明为依赖](../dep-man/01-core-dependency-management/declaring_dependencies.md)关系
+ * [控制转义依赖和它们的版本](../dep-man/03-controlling-transitive-dependencies/dependency_constraints.md)
+ * 通过[复合构建](../dep-man/05-multirepo-environment/composite_builds.md)测试你对第三方依赖关系的修复（比从[Maven Local](../dep-man/01-core-dependency-management/declaring_repositories.md)发布和消费更好的替代方法）
 
 你会发现Gradle有一个丰富的API来处理依赖关系--这个API需要时间来掌握，但对于常见的场景来说，它是直接使用的。
 
@@ -284,7 +284,7 @@ Gradle只能在Java 8或更高版本上运行。但Gradle仍然支持编译，�
 - 测试和JavaExec任务来使用正确的java可执行文件。
 
 
-下面的示例显示了需要如何调整`build.gradle`。为了能够使构建与机器无关，应该在每个开发者机器上的用户主目录下的`GRADLE_USER_HOME/gradle.properties`(关于`gradle.properties`的更多细节，请参见[Gradle配置属性](..\running-builds\build_environment.md))中配置旧的Java主目录和目标版本的位置，如示例所示：
+下面的示例显示了需要如何调整`build.gradle`。为了能够使构建与机器无关，应该在每个开发者机器上的用户主目录下的`GRADLE_USER_HOME/gradle.properties`(关于`gradle.properties`的更多细节，请参见[Gradle配置属性](../running-builds/build_environment.md))中配置旧的Java主目录和目标版本的位置，如示例所示：
 
 ***gradle.properties***
 
@@ -361,7 +361,7 @@ tasks.withType(JavaExec) {
 
 ### Java属性文件和可重复构建
 
-您可以通过[`WriteProperties`](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.WriteProperties.html)任务轻松创建Java属性文件，它修复了`Properties.store()`的一个众所周知的问题，这个问题会降低[增量构建](..\authoring-builds\more_about_tasks.md)的可用性。
+您可以通过[`WriteProperties`](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.WriteProperties.html)任务轻松创建Java属性文件，它修复了`Properties.store()`的一个众所周知的问题，这个问题会降低[增量构建](../authoring-builds/more_about_tasks.md)的可用性。
 
 用于编写属性文件的标准Java API每次都会产生一个唯一的文件，即使使用了相同的属性和值，因为它在注释中包含了一个时间戳，也不会重复。Gradle的WriteProperties任务会生成完全相同的输出，如果没有一个属性发生变化的话。这是通过对属性文件的生成方式进行一些调整来实现的。
 
@@ -457,10 +457,10 @@ task uberJar(type: Jar) {
 
 你可以使用其中一个发布插件来发布Java项目创建的JAR。
 
-- [Maven发布插件](..\dep-man\06-publishing\publishing_maven.md)
+- [Maven发布插件](../dep-man/06-publishing/publishing_maven.md)
 
 
-- [Ivy发布插件](..\dep-man\06-publishing\publishing_ivy.md)
+- [Ivy发布插件](../dep-man/06-publishing/publishing_ivy.md)
 
 ### 修改JAR manifest
 
@@ -607,7 +607,7 @@ Gradle通过[Java Library Plugin](java_library_plugin.md)来管理这种区别�
 
 Java Web应用程序可以根据您使用的技术以多种方式进行打包和部署。例如，你可能会使用[Spring Boot](https://projects.spring.io/spring-boot/)与一个FAT JAR或基于[Reactive](https://www.reactivemanifesto.org/)的系统运行在[Netty](https://netty.io/)上。无论你使用什么技术，Gradle和其庞大的插件社区都能满足你的需求。不过，核心Gradle只直接支持传统的基于Servlet的Web应用程序部署为WAR文件。
 
-这种支持是通过[War Plugin](..\core-plugins\war_plugin.md)来实现的，War Plugin会自动应用Java Plugin，并增加一个额外的打包步骤，做以下事情。
+这种支持是通过[War Plugin](../core-plugins/war_plugin.md)来实现的，War Plugin会自动应用Java Plugin，并增加一个额外的打包步骤，做以下事情。
 
 - 从`src/main/webapp`复制静态资源到WAR文件的根目录下
 
@@ -623,7 +623,7 @@ Java Web应用程序可以根据您使用的技术以多种方式进行打包和
 
 ## 构建Java EE应用程序
 
-这些年来，Java企业系统已经发生了很大的变化，但如果你还在部署到JEE应用服务器上，你可以利用[Ear Plugin](..\core-plugins\ear_plugin.md)。这增加了构建EAR文件的约定和任务。该插件的章节有更多的细节。
+这些年来，Java企业系统已经发生了很大的变化，但如果你还在部署到JEE应用服务器上，你可以利用[Ear Plugin](../core-plugins/ear_plugin.md)。这增加了构建EAR文件的约定和任务。该插件的章节有更多的细节。
 
 ## 构建Java平台
 
@@ -681,7 +681,7 @@ tasks.named('compileJava') {
 1. 通过将compileGroovy的classpath设置为只有sourceSets.main.compileClasspath，我们有效地删除了之前通过让classpath也考虑到sourceSets.main.java.classesDirectory而声明的对compileJava的依赖。
 2. 通过将sourceSets.main.groovy.classesDirectory添加到compileJava classpath中，我们有效地声明了对compileGroovy任务的依赖。
 
-所有这些都是通过使用[目录属性](..\extending-gradle\lazy_configuration.md)来实现的。
+所有这些都是通过使用[目录属性](../extending-gradle/lazy_configuration.md)来实现的。
 
 ### 额外的语言支持
 

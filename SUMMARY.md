@@ -44,7 +44,7 @@
     * 使用TestKit测试构建
     * 使用Gradle的Ant
 * 编写JVM构建
-  * [构建Java & JVM项目](jvm\building_java_projects.md)
+  * [构建Java & JVM项目](jvm/building_java_projects.md)
   * 测试Java & JVM项目
   * 管理依赖性
   * JVM插件
@@ -73,7 +73,7 @@
     * 处理变化的版本
     * 锁定版本
   * 控制传递性
-    * [升级版本](dep-man\03-controlling-transitive-dependencies\dependency_constraints.md)
+    * [升级版本](dep-man/03-controlling-transitive-dependencies/dependency_constraints.md)
     * 降级和排除
     * 共享版本
     * 统一依赖性
